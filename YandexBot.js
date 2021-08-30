@@ -10,7 +10,7 @@
 // @grant        none
 // ==/UserScript==
 
-let keywords = ["как звучит флейта", "как звучит тромбон"];
+let keywords = ["проверка: как звучит какофония?","как звучит флейта", "как звучит тромбон"];
 let keyword = keywords[getRandom(0,keywords.length)];
 let btnYa = document.getElementsByClassName("button mini-suggest__button button_theme_search button_size_search i-bem button_js_inited")[0];
 let links = document.links;
