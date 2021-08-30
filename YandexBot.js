@@ -4,7 +4,8 @@
 // @version      0.1
 // @description  Bot for yandex
 // @author       MarinaLukina
-// @match        https://www.yandex.ru/*
+// @match        https://yandex.ru/*
+// @match        https://ya.ru/*
 // @grant        none
 // ==/UserScript==
 
