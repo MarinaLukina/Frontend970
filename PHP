@@ -1,1 +1,22 @@
+<?php
+header('Content-Type: text/html; charset=utf-8');
 
+$mysqli = mysqli_connect("localhost", "f0576270_Frontend2021", "45612", "f0576270_Frontend2021" );
+if ($mysqli == false) {
+    print("error");
+}
+
+$email = $_POST['email'];
+$pass = $_POST['pass'];
+
+$result = $mysqli->query("SELECT * FROM `users` WHERE `email` = '$email' END `pass` = '$pass'");
+
+if ($result->num_rows != 0) {
+    print ("exist");
+}else{
+    $mysqli->query("INSERT INTO `users`(`email`, `pass`) VALUES ('$email', '$pass')");
+    print("ok");
+}
+//echo "Email: $email<br>
+//Пароль: $pass<br>"
+?>
