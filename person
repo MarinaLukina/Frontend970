@@ -1,0 +1,81 @@
+<?php
+class Person
+{
+private $name;
+private $lastname;
+private $age;
+private $hp;
+private $mother;
+private $father;
+
+function __construct($name, $lastname, $age, $mother = null, $father = null)
+{
+    $this->name = $name;
+    $this->lastname = $lastname;
+    $this->age = $age;
+    $this->mother = $mother;
+    $this->father = $father;
+    $this->hp = 100;
+}
+    function sayHi($name)
+    {
+    return "Hi $name, I`m " . $this->name;
+    }
+    function setHP($hp) 
+    {
+        if($this->hp + $hp >= 100) $this->hp = 100;
+        else $this->hp = $this->hp + $hp;
+    }
+    function getHP()
+    {
+        return $this->hp;
+    }
+    function getName() 
+    {
+        return $this->name;
+    }
+    function getMother()
+    {
+        return $this->mother;
+    }
+    function getFather()
+    {
+        return $this->father;
+    }
+    function getLastname()
+    {
+        return $this->lastname;
+    }
+    function getAge()
+    {
+        return $this->age;
+    }
+    function getInfo() {
+        return 
+        "<h3>A few words about myself. </h3><br>"."
+        My name is:" .$this->getName()."<br>
+        my lastname is:" .$this->getLastname()." <br> 
+        my age:" .$this->getAge()." <br>
+        my mother is: " .$this->getMother()->getName()." " .$this->getMother()->getLastname().", her age: " .$this->getMother()->getAge()." <br>
+        my father is: " .$this->getFather()->getName()." " .$this->getFather()->getLastname().", his age: " .$this->getFather()->getAge()." <br>
+        <p>my mather`s parents: <br>
+        mather name: " .$this->getMother()->getMother()->getName()." " .$this->getMother()->getMother()->getLastname().", her age: " .$this->getMother()->getMother()->getAge()."<br>
+        father name: " .$this->getMother()->getFather()->getName()." " .$this->getMother()->getFather()->getLastname().", his age: " .$this->getMother()->getFather()->getAge()."</p>  
+        <p>my father`s parents: <br>
+        mather name: " .$this->getFather()->getMother()->getName()." " .$this->getFather()->getMother()->getLastname().", her age: ".$this->getFather()->getMother()->getAge()."<br>     
+        father name: " .$this->getFather()->getFather()->getName()." " .$this->getFather()->getFather()->getLastname().", his age: ".$this->getFather()->getFather()->getAge()."</p>";
+    }
+}
+
+    $pavel = new Person("Pavel", "Ivanov", 72, );
+    $lidia = new Person("Lidia", "Sidorova", 67);
+    $maria = new Person("Maria", "Bosova", 65);
+    $igor = new Person("Igor", "Petrov", 68); 
+    $alex = new Person("Alex", "Ivanov", 42, $lidia, $pavel);
+    $olga = new Person("Olga", "Ivanova", 42, $maria, $igor); 
+    $valera = new Person("Valera", "Ivanov", 15, $olga, $alex);
+
+    echo $valera->getInfo();
+
+
+
